@@ -1,4 +1,3 @@
-
 pipeline {
     agent any
 
@@ -39,6 +38,9 @@ pipeline {
                 ]) {
                     sh '''
                         set +x
+
+                        echo "$DOCKER_USER"
+
                         echo "$DOCKER_PASS" | docker login \
                             --username "$DOCKER_USER" \
                             --password-stdin
