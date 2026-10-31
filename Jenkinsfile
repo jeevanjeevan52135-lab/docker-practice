@@ -1,3 +1,4 @@
+
 pipeline {
     agent any
 
@@ -27,7 +28,7 @@ pipeline {
             }
         }
 
-        stage('Docker Login') {
+        stage('Docker Login and Push') {
             steps {
                 withCredentials([
                     usernamePassword(
@@ -41,14 +42,10 @@ pipeline {
                         echo "$DOCKER_PASS" | docker login \
                             --username "$DOCKER_USER" \
                             --password-stdin
+
+                        docker push "$IMAGE_NAME:$IMAGE_TAG"
                     '''
                 }
-            }
-        }
-
-        stage('Push Docker Image') {
-            steps {
-                sh 'docker push "$IMAGE_NAME:$IMAGE_TAG"'
             }
         }
     }
