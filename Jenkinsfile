@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        IMAGE_NAME = 'jeevan1304/jenkins-docker-demo'
+        IMAGE_NAME = 'jeeva1304/jenkins-docker-demo'
         IMAGE_TAG = '1'
     }
 
