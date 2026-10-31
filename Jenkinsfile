@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        IMAGE_NAME = 'karthikeyan0602/jenkins-docker-demo'
+        IMAGE_NAME = 'jeevan1304/jenkins-docker-demo'
         IMAGE_TAG = '1'
     }
 
@@ -31,7 +31,7 @@ pipeline {
             steps {
                 withCredentials([
                     usernamePassword(
-                        credentialsId: 'dockerhub-creds',
+                        credentialsId: 'Dockerhub auth',
                         usernameVariable: 'DOCKER_USER',
                         passwordVariable: 'DOCKER_PASS'
                     )
